@@ -1,0 +1,22 @@
+#!/bin/bash
+# go to any folder
+# check if the folder contains file pubspec.yaml
+# run flutter clean in that folder
+# run flutter pub get
+
+for dir in */; do
+    if [ -d "$dir" ]; then
+        echo "Found directory $dir"
+        echo "going into $dir"
+        echo "Checking for pubspec.yaml"
+        cd $dir
+        if [ -e "pubspec.yaml" ]; then
+            echo "Running clean command"
+            flutter clean
+            flutter pub get
+            cd ..
+        else 
+            echo "Not a flutter directory. or add the pubspec.yaml file"
+        fi  
+    fi
+done
