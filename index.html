@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://app.malipo.mw/sdk/v1-malipo-hosted-checkout.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        MalipoCheckout.init({
+          merchantId: "639537188",
+          amount: 50,
+          currency: "MWK",
+          callback: function (result) {
+            PaymentCallback.postMessage(JSON.stringify(result));
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>Redirecting to payment...</h2>
+  </body>
+</html>
